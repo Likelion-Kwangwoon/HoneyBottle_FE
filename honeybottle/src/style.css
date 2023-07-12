@@ -35,7 +35,6 @@ div.profile-layout {
 
 div.col-lg-8 {
     flex: 0 0 auto;
-    width: 100%;
 }
 
 div.justify-content-center {
@@ -141,7 +140,7 @@ div.container.bootstrap.snippets.bootdey {
 }
 
 div.candidate-list-group {
-    display: flex;
+    width:100%;
     flex-wrap: wrap;
 }
 div.col-lg-4, .col-lg-8 {
@@ -153,10 +152,10 @@ div.col-lg-4 {
     order: 1;
     background-color:  rgba(244, 243, 250, 1);
 }
-
 div.col-lg-8 {
     order: 2;
 }
+
 .candidate-list-box .favorite-icon {
 position: absolute;
 right: 22px;
@@ -194,7 +193,7 @@ a.nav-logo {
     font-weight: 600;
 }
 
-.list-group {
+nav.list-group {
     --bs-list-group-color: rgba(76, 73, 237, 1);
     --bs-list-group-bg:  rgba(244, 243, 250, 1);
     --bs-list-group-border-color:rgba(244, 243, 250, 1);
@@ -216,4 +215,42 @@ a.nav-logo {
     flex-direction: column;
     padding-left: 25px;
     border-radius: var(--bs-list-group-border-radius);
+}
+
+/* candidate-list-box 내부 글씨 굵기 및 박스 크기 */
+@media (min-width: 992px) {
+    .col-lg-8 {
+      font-weight: 600;
+      width: 66%!important;
+    }
+  }
+
+.card {
+    --bs-card-spacer-y: 1rem;
+    --bs-card-spacer-x: 1rem;
+    --bs-card-title-spacer-y: 0.5rem;
+    --bs-card-border-width: 1px;
+    --bs-card-border-color: var(--bs-border-color-translucent);
+    --bs-card-border-radius: 0.375rem;
+    --bs-card-box-shadow: ;
+    --bs-card-inner-border-radius: calc(0.375rem - 1px);
+    --bs-card-cap-padding-y: 0.5rem;
+    --bs-card-cap-padding-x: 1rem;
+    --bs-card-cap-bg: rgba(0, 0, 0, 0.03);
+    --bs-card-cap-color: ;
+    --bs-card-height: ;
+    --bs-card-color: ;
+    --bs-card-bg: #fff;
+    --bs-card-img-overlay-padding: 1rem;
+    --bs-card-group-margin: 0.75rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: var(--bs-card-height);
+    word-wrap: break-word;
+    background-color: var(--bs-card-bg);
+    background-clip: border-box;
+    border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+    border-radius: var(--bs-card-border-radius);
 }
