@@ -1,10 +1,23 @@
-import * as React from "react";
-import './font.css'
-import './style.css'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import './font.css';
+import './style.css';
 
 function Main() {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8080/honey')
+      .then((response) => response.json())
+      .then((data) => setPosts(data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  if (!Array.isArray(posts)) {
+    return null;
+  }
+
   return (
-    <>
       <html lang="ko">
         <head>
           <meta charset="utf-8" />
@@ -12,11 +25,12 @@ function Main() {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
             href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
-            rel="stylesheet"/>
-          <link href='./style.css' type="text/css" rel="stylesheet" />
+            rel="stylesheet"
+          />
+          <link href="./style.css" type="text/css" rel="stylesheet" />
         </head>
         <body style={{ backgroundColor: 'rgba(244, 243, 250, 1)' }}>
-          <link rel="stylesheet" href='./font.css' />
+          <link rel="stylesheet" href="./font.css" />
           <section className="section">
             <div className="container">
               <div className="justify-content-center row">
@@ -50,8 +64,6 @@ function Main() {
               </div>
             </div>
 
-           
-
             <div className="candidate-list">
               <div className="col-lg-4">
                 <div className="container bootstrap snippets bootdey">
@@ -84,268 +96,101 @@ function Main() {
 
               <div className="col-lg-8">
                 <div className="candidate-list-group">
-                  <div className="candidate-list-box bookmark-post card mt-4">
-                    <div className="p-4 card-body">
-                      <div className="align-items-center row">
-                        <div className="col-auto">
-                          <div className="candidate-list-images">
-                            <a href="#">
-                              <img
-                                src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                alt=""
-                                className="avatar-md img-thumbnail rounded-circle"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                        <div className="col-lg-5">
-                          <div className="candidate-list-content mt-3 mt-lg-0">
-                            <h5 className="fs-19 mb-0">
-                              <a className="primary-link" href="#">
-                                Kanye
+                  {posts.map((post, index) => (
+                    <div className="candidate-list-box bookmark-post card mt-4" key={index}>
+                      <div className="p-4 card-body">
+                        <div className="align-items-center row">
+                          <div className="col-auto">
+                            <div className="candidate-list-images">
+                              <a href="#">
+                                <img
+                                  src={post.image}
+                                  alt=""
+                                  className="avatar-md img-thumbnail rounded-circle"
+                                />
                               </a>
-                            </h5>
-                            <p className="text-muted mb-2"> 2023/07/07 13:00</p>
-                            <p className="text-muted mb-2">
-                              광운대 앞에 화로상회 알바해보신 분 계신가요?
-                              후기좀요
-                            </p>
-                            <ul className="list-inline mb-0 text-muted">
-                              <li
-                                className="list-inline-item"
-                                style={{ color: 'rgba(155, 155, 155, 1)' }}>
-                                <i className="mdi mdi-map-marker"></i> 댓글1개
-                              </li>
-                            </ul>
+                            </div>
+                          </div>
+                          <div className="col-lg-5">
+                            <div className="candidate-list-content mt-3 mt-lg-0">
+                              <h5 className="fs-19 mb-0">
+                                <a className="primary-link" href="#">
+                                  {post.title}
+                                </a>
+                              </h5>
+                              <p className="text-muted mb-2">{post.date}</p>
+                              <p className="text-muted mb-2">{post.content}</p>
+                              <ul className="list-inline mb-0 text-muted">
+                                <li
+                                  className="list-inline-item"
+                                  style={{ color: 'rgba(155, 155, 155, 1)' }}
+                                >
+                                  <i className="mdi mdi-map-marker"></i> 댓글{post.commentCount}개
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div className="col-lg-4">
+                            <div className="mt-2 mt-lg-0 d-flex flex-wrap align-items-start gap-1">
+                              <span className="badge bg-soft-secondary fs-14 mt-1">
+                                {post.category}
+                              </span>
+                            </div>
                           </div>
                         </div>
-                        <div className="col-lg-4">
-                          <div className="mt-2 mt-lg-0 d-flex flex-wrap align-items-start gap-1">
-                            <span className="badge bg-soft-secondary fs-14 mt-1">
-                              학교꿀통
-                            </span>
-                          </div>
+                        <div className="favorite-icon">
+                          <a href="#">
+                            <i className="mdi mdi-heart fs-18"></i>
+                          </a>
                         </div>
-                      </div>
-                      <div className="favorite-icon">
-                        <a href="#">
-                          <i className="mdi mdi-heart fs-18"></i>
-                        </a>
                       </div>
                     </div>
-                  </div>
-                
-
-                  <div className="candidate-list-box bookmark-post card mt-4">
-                    <div className="p-4 card-body">
-                      <div className="align-items-center row">
-                        <div className="col-auto">
-                          <div className="candidate-list-images">
-                            <a href="#">
-                              <img
-                                src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                alt=""
-                                className="avatar-md img-thumbnail rounded-circle"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                        <div className="col-lg-5">
-                          <div className="candidate-list-content mt-3 mt-lg-0">
-                            <h5 className="fs-19 mb-0">
-                              <a className="primary-link" href="#">
-                                Charlie
-                              </a>
-                            </h5>
-                            <p className="text-muted mb-2"> 2023/07/07 13:00</p>
-                            <p className="text-muted mb-2">
-                              석계 칼국수 맛집 아시나요
-                            </p>
-                            <ul className="list-inline mb-0 text-muted">
-                              <li
-                                className="list-inline-item"
-                                style={{ color: 'rgba(155, 155, 155, 1)' }}>
-                                <i className="mdi mdi-map-marker"></i> 댓글1개
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="col-lg-4">
-                          <div className="mt-2 mt-lg-0 d-flex flex-wrap align-items-start gap-1">
-                            <span className="badge bg-soft-secondary fs-14 mt-1">
-                              학교꿀통
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="favorite-icon">
-                        <a href="#">
-                          <i className="mdi mdi-heart fs-18"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="candidate-list-box bookmark-post card mt-4">
-                    <div className="p-4 card-body">
-                      <div className="align-items-center row">
-                        <div className="col-auto">
-                          <div className="candidate-list-images">
-                            <a href="#">
-                              <img
-                                src="https://bootdey.com/img/Content/avatar/avatar3.png"
-                                alt=""
-                                className="avatar-md img-thumbnail rounded-circle"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                        <div className="col-lg-5">
-                          <div className="candidate-list-content mt-3 mt-lg-0">
-                            <h5 className="fs-19 mb-0">
-                              <a className="primary-link" href="#">
-                                Amy
-                              </a>
-                            </h5>
-                            <p className="text-muted mb-2"> 2023/07/07 15:00</p>
-                            <p className="text-muted mb-2">
-                              컴포즈 vs 브레댄코 
-                            </p>
-                            <ul className="list-inline mb-0 text-muted">
-                              <li
-                                className="list-inline-item"
-                                style={{ color: 'rgba(155, 155, 155, 1)' }}>
-                                <i className="mdi mdi-map-marker"></i> 댓글5개
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="col-lg-4">
-                          <div className="mt-2 mt-lg-0 d-flex flex-wrap align-items-start gap-1">
-                            <span className="badge bg-soft-secondary fs-14 mt-1">
-                              학교꿀통
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="favorite-icon">
-                        <a href="#">
-                          <i className="mdi mdi-heart fs-18"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="candidate-list-box bookmark-post card mt-4">
-                    <div className="p-4 card-body">
-                      <div className="align-items-center row">
-                        <div className="col-auto">
-                          <div className="candidate-list-images">
-                            <a href="#">
-                              <img
-                                src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                                alt=""
-                                className="avatar-md img-thumbnail rounded-circle"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                        <div className="col-lg-5">
-                          <div className="candidate-list-content mt-3 mt-lg-0">
-                            <h5 className="fs-19 mb-0">
-                              <a className="primary-link" href="#">
-                                John
-                              </a>
-                            </h5>
-                            <p className="text-muted mb-2"> 2023/07/09 20:00</p>
-                            <p className="text-muted mb-2">
-                              화로상회 맛있나요
-                            </p>
-                            <ul className="list-inline mb-0 text-muted">
-                              <li
-                                className="list-inline-item"
-                                style={{ color: 'rgba(155, 155, 155, 1)' }}>
-                                <i className="mdi mdi-map-marker"></i> 댓글1개
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="col-lg-4">
-                          <div className="mt-2 mt-lg-0 d-flex flex-wrap align-items-start gap-1">
-                            <span className="badge bg-soft-secondary fs-14 mt-1">
-                              학교꿀통
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="favorite-icon">
-                        <a href="#">
-                          <i className="mdi mdi-heart fs-18"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                
-                  
-
-                  
-
-                  
-
-                  
-
+                  ))}
 
                   {/* 나머지 candidate-list-box 컴포넌트들 */}
-
                 </div>
-              
 
-                  {/* 페이지 네비게이션 */}
-                  <div className="row">
-                    <div className="mt-4 pt-2 col-lg-12">
-                      <nav aria-label="Page navigation example">
-                        <div className="pagination job-pagination mb-0 justify-content-center">
-                          <li className="page-item disabled">
-                            <a
-                              className="page-link"
-                              tabIndex="-1"
-                              href="#"
-                            >
-                              <i className="mdi mdi-chevron-double-left fs-15"></i>
-                            </a>
-                          </li>
-                          <li className="page-item active">
-                            <a className="page-link" href="#">
-                              1
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              2
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              3
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              4
-                            </a>
-                          </li>
-                          <li className="page-item">
-                            <a className="page-link" href="#">
-                              <i className="mdi mdi-chevron-double-right fs-15"></i>
-                            </a>
-                          </li>
-                        </div>
-                      </nav>
-                    </div>
+                {/* 페이지 네비게이션 */}
+                <div className="row">
+                  <div className="mt-4 pt-2 col-lg-12">
+                    <nav aria-label="Page navigation example">
+                      <div className="pagination job-pagination mb-0 justify-content-center">
+                        <li className="page-item disabled">
+                          <a className="page-link" tabIndex="-1" href="#">
+                            <i className="mdi mdi-chevron-double-left fs-15"></i>
+                          </a>
+                        </li>
+                        <li className="page-item active">
+                          <a className="page-link" href="#">
+                            1
+                          </a>
+                        </li>
+                        <li className="page-item">
+                          <a className="page-link" href="#">
+                            2
+                          </a>
+                        </li>
+                        <li className="page-item">
+                          <a className="page-link" href="#">
+                            3
+                          </a>
+                        </li>
+                        <li className="page-item">
+                          <a className="page-link" href="#">
+                            4
+                          </a>
+                        </li>
+                        <li className="page-item">
+                          <a className="page-link" href="#">
+                            <i className="mdi mdi-chevron-double-right fs-15"></i>
+                          </a>
+                        </li>
+                      </div>
+                    </nav>
                   </div>
                 </div>
               </div>
-            
+            </div>
           </section>
 
           <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
@@ -356,7 +201,6 @@ function Main() {
           <script type="text/javascript"></script>
         </body>
       </html>
-    </>
   );
 }
 

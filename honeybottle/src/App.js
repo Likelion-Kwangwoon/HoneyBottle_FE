@@ -11,8 +11,8 @@ function App() {
       <Router> 
         <Routes>
           <Route path="/" exact={true} element={<Splash />} />
-          <Route path="/Main" element={<Main />} />
-          <Route path="/Login" element={<Login />} />
+          <Route path="/honey" element={<Main />} />
+          <Route path="/sign_up" element={<Login />} />
         </Routes>
     </Router>
     );

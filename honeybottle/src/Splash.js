@@ -21,9 +21,9 @@ function Splash() {
             <link rel="stylesheet" href='./font.css' />
             <section className="section">
               <h1>허니 보틀 스플래시 화면입니다</h1>
-              <Link to="/Login"><button>로그인</button></Link>
+              <Link to="/sign_up"><button>로그인</button></Link>
               <button>회원가입</button>
-              <Link to="/Main"><button>게시판</button></Link>
+              <Link to="/honey"><button>게시판</button></Link>
             </section>
           </body>
         </html>
