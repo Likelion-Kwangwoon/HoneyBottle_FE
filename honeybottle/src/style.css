@@ -154,6 +154,17 @@ div.col-lg-8 {
     order: 2;
 }
 
+a.list-group-item {
+    font-weight: 600;
+    font-size: 19px;
+    padding: 15px;
+    --bs-link-hover-color: rgba(76, 73, 237, 1);
+    color: rgba(161, 160, 189, 1);
+}
+a.list-group-item:hover {
+    background-color: rgba(228, 227, 255, 1);
+    color:rgba(76, 73, 237, 1)
+  }
 .candidate-list-box .favorite-icon {
 position: absolute;
 right: 22px;
@@ -185,11 +196,6 @@ div.nav-logo-layout {
     border-radius: 9px;
 }
 
-a.nav-logo {
-    font-size:21px;
-    color :rgba(76, 73, 237, 1);
-    font-weight: 600;
-}
 
 nav.list-group {
     --bs-list-group-color: rgba(76, 73, 237, 1);

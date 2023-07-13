@@ -72,8 +72,8 @@ function App() {
                     style={{ backgroundColor: 'rgba(244, 243, 250, 1)' }}
                   >
                     <div className="nav-logo-layout">
-                      <a className="nav-logo" href="#">
-                        Project Name
+                      <a className="nav-logo">
+                        🍯 HoneyBottle
                       </a>
                     </div>
                     <nav className="list-group">

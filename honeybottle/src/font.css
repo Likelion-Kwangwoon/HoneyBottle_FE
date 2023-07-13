@@ -3,7 +3,7 @@
 * {
     font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
   }
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&family=Shrikhand&family=Space+Grotesk:wght@300&display=swap');
 
 /*@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&family=Varela+Round&display=swap'); 
 .poppins{
@@ -48,3 +48,17 @@
     letter-spacing: 0px;
     text-align: right;
   }
+  a.nav-logo {
+    text-decoration: none;
+    font-family:'Shrikhand', cursive;
+    font-size: 26px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: 0em;
+    text-align: left;
+    color :rgba(76, 73, 237, 1);
+    
+
+  }
+ 
