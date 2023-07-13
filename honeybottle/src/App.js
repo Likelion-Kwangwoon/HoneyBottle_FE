@@ -51,18 +51,7 @@ function App() {
               </div>
             </div>
 
-            <div className="align-items-center row">
-              <div className="col-lg-8">
-                <div className="mb-3 mb-lg-0">
-                  <h6 className="fs-16 mb-0"> </h6>
-                </div>
-              </div>
-              <div className="col-lg-4">
-                <div className="candidate-list-widgets">
-                  <div className="row"></div>
-                </div>
-              </div>
-            </div>
+           
 
             <div className="candidate-list">
               <div className="col-lg-4">

@@ -1,6 +1,6 @@
 div.container {
     width: 100%;
-    display: flex;
+    display: block;
     height: 123px;
     top: -1.375px;
     border-radius: 0px;
@@ -44,7 +44,7 @@ div.justify-content-center {
 }
 
 div.division-line {
-    width: 1916.2993039600387px;
+    display: block;
     top: 88px;
     left: 1.875px;
     border: 1px solid rgba(237, 237, 237, 1);
@@ -149,6 +149,7 @@ div.col-lg-4 {
     order: 1;
     flex: 0 0 auto;
     width: 25%;
+    margin-top: 5px;
 }
 div.col-lg-8 {
     order: 2;
