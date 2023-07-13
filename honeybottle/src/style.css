@@ -147,7 +147,8 @@ div.col-lg-4, .col-lg-8 {
 
 div.col-lg-4 {
     order: 1;
-    background-color:  rgba(244, 243, 250, 1);
+    flex: 0 0 auto;
+    width: 25%;
 }
 div.col-lg-8 {
     order: 2;
