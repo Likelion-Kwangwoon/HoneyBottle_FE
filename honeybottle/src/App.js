@@ -72,7 +72,7 @@ function App() {
                     style={{ backgroundColor: 'rgba(244, 243, 250, 1)' }}
                   >
                     <div className="nav-logo-layout">
-                      <a className="nav-logo">
+                      <a className="nav-logo" href="#">
                         🍯 HoneyBottle
                       </a>
                     </div>

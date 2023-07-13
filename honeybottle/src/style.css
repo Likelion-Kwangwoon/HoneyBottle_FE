@@ -39,9 +39,8 @@ div.col-lg-8 {
 }
 
 div.justify-content-center {
-   
     justify-content:space-between;
-    background-color: rgba(255, 255, 255, 1);
+    /*background-color: rgba(255, 255, 255, 1);*/
 }
 
 div.division-line {
@@ -164,7 +163,8 @@ a.list-group-item {
 a.list-group-item:hover {
     background-color: rgba(228, 227, 255, 1);
     color:rgba(76, 73, 237, 1)
-  }
+}
+
 .candidate-list-box .favorite-icon {
 position: absolute;
 right: 22px;
