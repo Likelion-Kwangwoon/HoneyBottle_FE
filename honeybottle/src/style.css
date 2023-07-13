@@ -21,9 +21,10 @@ div.city-layout {
     height: 42px;
     top: 23.375px;
     left: 47px;
-    margin-top: 30px;
+    margin-top: 31px;
 
 }
+
 div.profile-layout {
     width: Fixed (234px);
     height: Fixed (50px);
@@ -49,15 +50,15 @@ div.division-line {
     left: 1.875px;
     border: 1px solid rgba(237, 237, 237, 1);
 }
+div.button-group {
+    display: flex;
+}
 
 div.button-group button {
     border-color:rgba(255, 255, 255, 1);
-    
     background-color:rgba(255, 255, 255, 1);
     color:rgba(217, 217, 217, 1);
-    padding:10px;
-
-    
+    padding:10px; 
 }
 
 div.button-group button:hover {
@@ -66,18 +67,15 @@ div.button-group button:hover {
 }
 
 button#category-button {
-
     flex-grow: 1;
     width: 33.33%;
     box-sizing: border-box;
-    margin-left: -3px;
-    margin-right: -10px;
-    margin-top:10px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
     margin-bottom: 10px;
+    border-right:rgba(255, 255, 255, 1);
 }
-
-
-
 
 .card {
 box-shadow: 0 20px 27px 0 rgb(0 0 0 / 5%);
