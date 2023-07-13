@@ -103,13 +103,13 @@ function App() {
                           <div className="candidate-list-content mt-3 mt-lg-0">
                             <h5 className="fs-19 mb-0">
                               <a className="primary-link" href="#">
-                                Amy1
+                                Kanye
                               </a>
                             </h5>
                             <p className="text-muted mb-2"> 2023/07/07 13:00</p>
                             <p className="text-muted mb-2">
                               광운대 앞에 화로상회 알바해보신 분 계신가요?
-                              후기좀요 아자차카타파하마자낭러니ㅏㅇ러니ㅏㅇ러니ㅏ어리나러
+                              후기좀요
                             </p>
                             <ul className="list-inline mb-0 text-muted">
                               <li
@@ -155,13 +155,12 @@ function App() {
                           <div className="candidate-list-content mt-3 mt-lg-0">
                             <h5 className="fs-19 mb-0">
                               <a className="primary-link" href="#">
-                                Amy2
+                                Charlie
                               </a>
                             </h5>
                             <p className="text-muted mb-2"> 2023/07/07 13:00</p>
                             <p className="text-muted mb-2">
-                              광운대 앞에 화로상회 알바해보신 분 계신가요?
-                              후기좀요 아자차카타파하마자낭러니ㅏㅇ러니ㅏㅇ러니ㅏ어리나러
+                              석계 칼국수 맛집 아시나요
                             </p>
                             <ul className="list-inline mb-0 text-muted">
                               <li
@@ -206,10 +205,10 @@ function App() {
                           <div className="candidate-list-content mt-3 mt-lg-0">
                             <h5 className="fs-19 mb-0">
                               <a className="primary-link" href="#">
-                                Amy3
+                                Amy
                               </a>
                             </h5>
-                            <p className="text-muted mb-2"> 2023/07/07 13:00</p>
+                            <p className="text-muted mb-2"> 2023/07/07 15:00</p>
                             <p className="text-muted mb-2">
                               컴포즈 vs 브레댄코 
                             </p>
@@ -256,10 +255,10 @@ function App() {
                           <div className="candidate-list-content mt-3 mt-lg-0">
                             <h5 className="fs-19 mb-0">
                               <a className="primary-link" href="#">
-                                Amy5
+                                John
                               </a>
                             </h5>
-                            <p className="text-muted mb-2"> 2023/07/07 13:00</p>
+                            <p className="text-muted mb-2"> 2023/07/09 20:00</p>
                             <p className="text-muted mb-2">
                               화로상회 맛있나요
                             </p>
