@@ -19,16 +19,35 @@ function Login() {
         </head>
         <body className="login-body">
           <section className="section">
+            
+          <div className="container">
+              <div className="justify-content-center row">
+                <div className="col-lg-12">
+                  <div className="candidate-list-widgets mb-4">
+                      <div className="g-2 row">
+                        <div className="align-items-center row">
+                          <div className="col-lg-8">
+                            <div className="city-layout">
+                              <h4 className="cityname">HoneyBottle</h4>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="login-container">
               <h1 className="login-title">로그인</h1>
               <form className="login-form">
                 <div className="form-group">
-                  <label htmlFor="username">아이디</label>
-                  <input type="text" id="username" className="form-control" />
+                  <label htmlFor="username"></label>
+                  <input type="text" id="username" className="form-control" placeholder='가입하신 이메일을 입력하세요' />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="password">비밀번호</label>
-                  <input type="password" id="password" className="form-control" />
+                  <label htmlFor="password"></label>
+                  <input type="password" id="password" className="form-control" placeholder='비밀번호를 입력하세요'/>
                 </div>
                 <Link to="/Main"><button type="submit" className="btn btn-primary">로그인</button></Link>
               </form>
