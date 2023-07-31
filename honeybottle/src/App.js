@@ -3,6 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Splash from './Splash.js';
 import Main from './Main.js';
 import Login from './Login.js';
+import Activity from "./components/Activity.js";
+import Place from "./components/Place.js";
+import Eat from "./components/Eat.js";
 import './font.css'
 import './style.css'
 
@@ -13,6 +16,9 @@ function App() {
           <Route path="/" exact={true} element={<Splash />} />
           <Route path="/Main" element={<Main />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/Activity" element={<Activity />} />
+          <Route path="/Eat" element={<Eat />} />
+          <Route path="/Place" element={<Place />} />
         </Routes>
     </Router>
     );
