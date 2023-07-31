@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import '../font.css';
 import '../style.css';
 import MainCard from "./MainCard";
-import Main from "../Main";
+
+const titles = ['스모어쿠키 만들기','웜아트 섬유질 클레이로 만드는 스톤','도마만들기 원데이클래스','[분재클래스] 초보자도 할 수 있는 나만의 한 그루 만들기','(유리공예)스테인드글라스로 나만의 소품만들기'];
+const addresses = ['인천 부평구 장제로 196 2층','서울 서초구 방배천로32길 2 2층',
+'경기 광주시 경충대로 2149 지1층4호','경기 시흥시 수인로 2093','서울 강동구 천중로11길 41 1층 라랑공방'];
+const urls = ['./ocean.jpg','./forest.jpeg','./bridge.jpeg'];
+
+
 function Activity() {
   return (
     <>
@@ -88,107 +94,10 @@ function Activity() {
 
               <div className="col-lg-8">
                 <div className="candidate-list-group">
-                  <div className="candidate-list-box bookmark-post card mt-4">
-                    <div className="p-4 card-body">
-                      <div className="align-items-center row">
-                        <div className="col-auto">
-                          <div className="candidate-list-images">
-                            <a href="#">
-                              <img
-                                src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                                alt=""
-                                className="avatar-md img-thumbnail rounded-circle"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                        <div className="col-lg-5">
-                          <div className="candidate-list-content mt-3 mt-lg-0">
-                            <h5 className="fs-19 mb-0">
-                              <a className="primary-link" href="#">
-                                Kanye
-                              </a>
-                            </h5>
-                            <p className="text-muted mb-2"> 2023/07/07 13:00</p>
-                            <p className="text-muted mb-2">
-                              여기는 체험 페이지 입니다
-                            </p>
-                            <ul className="list-inline mb-0 text-muted">
-                              <li
-                                className="list-inline-item"
-                                style={{ color: 'rgba(155, 155, 155, 1)' }}>
-                                <i className="mdi mdi-map-marker"></i> 댓글1개
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="col-lg-4">
-                          <div className="mt-2 mt-lg-0 d-flex flex-wrap align-items-start gap-1">
-                            <span className="badge bg-soft-secondary fs-14 mt-1">
-                              학교꿀통
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="favorite-icon">
-                        <a href="#">
-                          <i className="mdi mdi-heart fs-18"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                
 
-                  <div className="candidate-list-box bookmark-post card mt-4">
-                    <div className="p-4 card-body">
-                      <div className="align-items-center row">
-                        <div className="col-auto">
-                          <div className="candidate-list-images">
-                            <a href="#">
-                              <img
-                                src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                                alt=""
-                                className="avatar-md img-thumbnail rounded-circle"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                        <div className="col-lg-5">
-                          <div className="candidate-list-content mt-3 mt-lg-0">
-                            <h5 className="fs-19 mb-0">
-                              <a className="primary-link" href="#">
-                                Charlie
-                              </a>
-                            </h5>
-                            <p className="text-muted mb-2"> 2023/07/07 13:00</p>
-                            <p className="text-muted mb-2">
-                              석계 칼국수 맛집 아시나요
-                            </p>
-                            <ul className="list-inline mb-0 text-muted">
-                              <li
-                                className="list-inline-item"
-                                style={{ color: 'rgba(155, 155, 155, 1)' }}>
-                                <i className="mdi mdi-map-marker"></i> 댓글1개
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div className="col-lg-4">
-                          <div className="mt-2 mt-lg-0 d-flex flex-wrap align-items-start gap-1">
-                            <span className="badge bg-soft-secondary fs-14 mt-1">
-                              학교꿀통
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="favorite-icon">
-                        <a href="#">
-                          <i className="mdi mdi-heart fs-18"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <MainCard />
+                <MainCard title={titles[0]} address={addresses[0]} imageUrl={urls[0]} />
+                <MainCard title={titles[1]} address={addresses[1]} imageUrl={urls[1]}/>
+                <MainCard title={titles[2]} address={addresses[2]} imageUrl={urls[2]}/>
 
                   {/* 나머지 candidate-list-box 컴포넌트들 */}
 

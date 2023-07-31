@@ -140,6 +140,7 @@ div.container.bootstrap.snippets.bootdey {
 }
 
 div.candidate-list-group {
+    margin-top: 40px;
     width:100%;
     flex-wrap: wrap;
 }
@@ -151,7 +152,7 @@ div.col-lg-4, .col-lg-8 {
 div.col-lg-4 {
     order: 1;
     flex: 0 0 auto;
-    width: 25%;
+    width: 20%;
     margin-top: 5px;
 }
 div.col-lg-8 {
