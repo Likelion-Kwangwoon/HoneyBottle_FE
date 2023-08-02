@@ -1,9 +1,12 @@
-import * as React from "react";
-import '../font.css';
+import React from 'react';
 
-function Information(){
-    return (
-        <div>상세 정보 페이지</div>
-    )
+function Information({ title }) {
+  return (
+    <div>
+      <h2>Information Page</h2>
+      <p>Title: {title}</p>
+    </div>
+  );
 }
+
 export default Information;

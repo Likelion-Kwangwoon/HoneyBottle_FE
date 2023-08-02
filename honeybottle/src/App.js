@@ -6,6 +6,7 @@ import Login from './Login.js';
 import Activity from "./components/Activity.js";
 import Place from "./components/Place.js";
 import Eat from "./components/Eat.js";
+import Information from './components/Information'
 import './font.css'
 import './style.css'
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/Activity" element={<Activity />} />
           <Route path="/Eat" element={<Eat />} />
           <Route path="/Place" element={<Place />} />
+          <Route path="/information/:title" element={<Information />} />
         </Routes>
     </Router>
     );

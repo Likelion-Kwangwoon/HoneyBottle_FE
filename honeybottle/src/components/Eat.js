@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../font.css';
 import '../style.css';
@@ -29,11 +30,7 @@ function Eat() {
     fetchData();
   }, []);
 
-   
-
   //const totalItems = data.length;
-  
-
   const totalItems = TOTAL_ITEMS;
   const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
 
@@ -43,8 +40,6 @@ function Eat() {
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const displayedData = data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-
-
 
   return (
     <>
@@ -67,16 +62,15 @@ function Eat() {
             <SideBar title={"먹거리"}/>
 
               <div className="col-lg-8">
-                <div className="candidate-list-group">
-                
+              <div className="candidate-list-group">
                 <MainCard key={0} title={'통영마을'} address={'서울특별시 노원구 어쩌구'} imageUrl={'./skywork.JPG'} />
 
                 {displayedData.map((item) => (
-                    <MainCard key={item.id} title={item.title} address={item.url} imageUrl={item.thumbnailUrl} />
-                  ))}
-                  {/* 나머지 candidate-list-box 컴포넌트들 */}
-
-                </div>
+                <Link key={item.id} to={`/information/${encodeURIComponent(item.title)}`}>
+                  <MainCard title={item.title} address={item.url} imageUrl={item.thumbnailUrl} />
+                </Link>
+                ))}
+              </div>
 
 
                 {/* 페이지 네비게이션 */}

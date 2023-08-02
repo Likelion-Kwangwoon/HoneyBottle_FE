@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../font.css';
 import '../style.css';
@@ -8,7 +9,6 @@ import SideBar from "./SideBar";
 
 const ITEMS_PER_PAGE = 4; // 한 페이지당 4개 게시물
 const TOTAL_ITEMS = 20; // 총 항목 개수 일부러 지정해 둠
-
 
 function Place() {
   const [ data, setData ] = useState([]);
@@ -62,12 +62,13 @@ function Place() {
 
               <div className="col-lg-8">
               <div className="candidate-list-group">
-              <MainCard key={0} title={'통영마을'} address={'서울특별시 노원구 어쩌구'} imageUrl={'./skywork.JPG'} />
-                {displayedData.map((item) => (
-                  <MainCard key={item.id} title={item.title} address={item.url} imageUrl={item.thumbnailUrl} />
-                ))}
-                {/* 나머지 candidate-list-box 컴포넌트들 */}
+                <MainCard key={0} title={'통영마을'} address={'서울특별시 노원구 어쩌구'} imageUrl={'./skywork.JPG'} />
 
+                {displayedData.map((item) => (
+                <Link key={item.id} to={`/information/${encodeURIComponent(item.title)}`}>
+                  <MainCard title={item.title} address={item.url} imageUrl={item.thumbnailUrl} />
+                </Link>
+                ))}
               </div>
 
                 {/* 페이지 네비게이션 */}
