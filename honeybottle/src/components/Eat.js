@@ -68,6 +68,8 @@ function Eat() {
 
               <div className="col-lg-8">
                 <div className="candidate-list-group">
+                
+                <MainCard key={0} title={'통영마을'} address={'서울특별시 노원구 어쩌구'} imageUrl={'./skywork.JPG'} />
 
                 {displayedData.map((item) => (
                     <MainCard key={item.id} title={item.title} address={item.url} imageUrl={item.thumbnailUrl} />
