@@ -1,18 +1,51 @@
-import * as React from "react";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import '../font.css';
 import '../style.css';
 import MainCard from "./MainCard";
 import Container from "./Container";
 import SideBar from "./SideBar";
 
-const titles = ['스모어쿠키 만들기', '웜아트 섬유질 클레이로 만드는 스톤', '도마만들기 원데이클래스', '[분재클래스] 초보자도 할 수 있는 나만의 한 그루 만들기', '(유리공예)스테인드글라스로 나만의 소품만들기'];
-const addresses = ['인천 부평구 장제로 196 2층', '서울 서초구 방배천로32길 2 2층',
-  '경기 광주시 경충대로 2149 지1층4호', '경기 시흥시 수인로 2093', '서울 강동구 천중로11길 41 1층 라랑공방'];
-const urls = ['./ocean.jpg', './forest.jpeg', './bridge.jpeg'];
-const page = ['체험','먹거리','명소'];
 
+const ITEMS_PER_PAGE = 4; // 한 페이지당 4개 게시물
+const TOTAL_ITEMS = 20; // 총 항목 개수 일부러 지정해 둠
 
 function Eat() {
+
+  const [ data, setData ] = useState([]);
+  const [ currentPage, setCurrentPage ] = useState(1);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get('https://jsonplaceholder.typicode.com/photos', {
+        params: {
+          _limit: TOTAL_ITEMS, // 총 항목 개수를 지정합니다.
+        },
+      });
+      setData(response.data);
+      console.log(response.data);
+    };
+
+    fetchData();
+  }, []);
+
+   
+
+  //const totalItems = data.length;
+  
+
+  const totalItems = TOTAL_ITEMS;
+  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+
+  const onPageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const displayedData = data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+
+
   return (
     <>
       <html lang="ko">
@@ -31,15 +64,14 @@ function Eat() {
             <Container />
 
             <div className="candidate-list">
-            <SideBar title={page[1]}/>
+            <SideBar title={"먹거리"}/>
 
               <div className="col-lg-8">
                 <div className="candidate-list-group">
 
-                  <MainCard title={titles[0]} address={addresses[0]} imageUrl={urls[0]} />
-                  <MainCard title={titles[1]} address={addresses[1]} imageUrl={urls[1]} />
-                  <MainCard title={titles[2]} address={addresses[2]} imageUrl={urls[2]} />
-
+                {displayedData.map((item) => (
+                    <MainCard key={item.id} title={item.title} address={item.url} imageUrl={item.thumbnailUrl} />
+                  ))}
                   {/* 나머지 candidate-list-box 컴포넌트들 */}
 
                 </div>
@@ -50,39 +82,32 @@ function Eat() {
                   <div className="mt-4 pt-2 col-lg-12">
                     <nav aria-label="Page navigation example">
                       <div className="pagination job-pagination mb-0 justify-content-center">
-                        <li className="page-item disabled">
-                          <a
+                        <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+                          <button
                             className="page-link"
                             tabIndex="-1"
-                            href="#"
+                            onClick={() => onPageChange(currentPage - 1)}
                           >
                             <i className="mdi mdi-chevron-double-left fs-15"></i>
-                          </a>
+                          </button>
                         </li>
-                        <li className="page-item active">
-                          <a className="page-link" href="#">
-                            1
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="#">
-                            2
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="#">
-                            3
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="#">
-                            4
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="#">
+                        {Array.from({ length: totalPages }).map((_, index) => (
+                          <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+                            <button
+                              className="page-link"
+                              onClick={() => onPageChange(index + 1)}
+                            >
+                              {index + 1}
+                            </button>
+                          </li>
+                        ))}
+                        <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+                          <button
+                            className="page-link"
+                            onClick={() => onPageChange(currentPage + 1)}
+                          >
                             <i className="mdi mdi-chevron-double-right fs-15"></i>
-                          </a>
+                          </button>
                         </li>
                       </div>
                     </nav>
@@ -90,7 +115,6 @@ function Eat() {
                 </div>
               </div>
             </div>
-
           </section>
 
           <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>

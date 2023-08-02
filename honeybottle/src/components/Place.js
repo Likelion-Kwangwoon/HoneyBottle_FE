@@ -1,18 +1,45 @@
-import * as React from "react";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import '../font.css';
 import '../style.css';
 import MainCard from "./MainCard";
 import Container from "./Container";
 import SideBar from "./SideBar";
 
+const ITEMS_PER_PAGE = 4; // 한 페이지당 4개 게시물
+const TOTAL_ITEMS = 20; // 총 항목 개수 일부러 지정해 둠
 
-const titles = ['동막해변','죽녹원','가우도출렁다리','광명동굴','강주해바라기마을'];
-const addresses = ['인천 강화군 화도면 해안남로 1481','전남 담양군 담양읍 죽녹원로 119',
-'전남 강진군 도암면 신기리 산7-1','경기 광명시 가학로85번길 142','경남 함안군 법수면 강주4길 37'];
-const urls = ['./ocean.jpg','./forest.jpeg','./bridge.jpeg'];
-const page = ['체험','먹거리','명소'];
 
 function Place() {
+  const [ data, setData ] = useState([]);
+  const [ currentPage, setCurrentPage ] = useState(1);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get('https://jsonplaceholder.typicode.com/photos', {
+        params: {
+          _limit: TOTAL_ITEMS, // 총 항목 개수를 지정합니다.
+        },
+      });
+      setData(response.data);
+      console.log(response.data);
+    };
+
+    fetchData();
+  }, []);
+
+
+  //const totalItems = data.length;
+  const totalItems = TOTAL_ITEMS;
+  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+
+  const onPageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const displayedData = data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
 
   return (
     <>
@@ -31,58 +58,48 @@ function Place() {
           <section className="section">
             <Container />
             <div className="candidate-list">
-              <SideBar title={page[2]}/>
+              <SideBar title={"명소"}/>
 
               <div className="col-lg-8">
-                <div className="candidate-list-group">
+              <div className="candidate-list-group">
+                {displayedData.map((item) => (
+                  <MainCard key={item.id} title={item.title} address={item.url} imageUrl={item.thumbnailUrl} />
+                ))}
+                {/* 나머지 candidate-list-box 컴포넌트들 */}
 
-                  <MainCard title={titles[0]} address={addresses[0]} imageUrl={urls[0]} />
-                  <MainCard title={titles[1]} address={addresses[1]} imageUrl={urls[1]} />
-                  <MainCard title={titles[2]} address={addresses[2]} imageUrl={urls[2]} />
-
-                  {/* 나머지 candidate-list-box 컴포넌트들 */}
-
-                </div>
-
+              </div>
 
                 {/* 페이지 네비게이션 */}
                 <div className="row">
                   <div className="mt-4 pt-2 col-lg-12">
                     <nav aria-label="Page navigation example">
                       <div className="pagination job-pagination mb-0 justify-content-center">
-                        <li className="page-item disabled">
-                          <a
+                        <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+                          <button
                             className="page-link"
                             tabIndex="-1"
-                            href="#"
+                            onClick={() => onPageChange(currentPage - 1)}
                           >
                             <i className="mdi mdi-chevron-double-left fs-15"></i>
-                          </a>
+                          </button>
                         </li>
-                        <li className="page-item active">
-                          <a className="page-link" href="#">
-                            1
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="#">
-                            2
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="#">
-                            3
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="#">
-                            4
-                          </a>
-                        </li>
-                        <li className="page-item">
-                          <a className="page-link" href="#">
+                        {Array.from({ length: totalPages }).map((_, index) => (
+                          <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+                            <button
+                              className="page-link"
+                              onClick={() => onPageChange(index + 1)}
+                            >
+                              {index + 1}
+                            </button>
+                          </li>
+                        ))}
+                        <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+                          <button
+                            className="page-link"
+                            onClick={() => onPageChange(currentPage + 1)}
+                          >
                             <i className="mdi mdi-chevron-double-right fs-15"></i>
-                          </a>
+                          </button>
                         </li>
                       </div>
                     </nav>
@@ -90,7 +107,6 @@ function Place() {
                 </div>
               </div>
             </div>
-
           </section>
 
           <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
