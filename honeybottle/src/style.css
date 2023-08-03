@@ -273,3 +273,9 @@ nav.list-group {
     border: var(--bs-card-border-width) solid var(--bs-card-border-color);
     border-radius: var(--bs-card-border-radius);
 }
+
+.img-hover:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+  }
+
