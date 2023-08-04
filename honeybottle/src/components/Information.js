@@ -1,9 +1,11 @@
 import React from 'react';
+import './information.css';
 
 
 
 function Information({ title }) {
   return (
+   
     <div className="container mt-5">
       <div className="row">
         <div className="col-lg-8">
@@ -12,7 +14,7 @@ function Information({ title }) {
             {/* Post header */}
             <header className="mb-4">
               {/* Post title */}
-              <h1 className="fw-bolder mb-1">Welcome to {title}!</h1>
+              <h1 className="fw-bolder mb-1">Welcome to !</h1>
               {/* Post meta content */}
               <div className="text-muted fst-italic mb-2">Posted on January 1, 2023 by Start Bootstrap</div>
               {/* Post categories */}
@@ -77,7 +79,7 @@ function Information({ title }) {
           </section>
         </div>
         {/* Side widgets */}
-        <div className="col-lg-4">
+        <div className="info-col-lg-4">
           {/* Search widget */}
           <div className="card mb-4">
             <div className="card-header">Search</div>
