@@ -1,29 +1,37 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import './information.css';
 
+function Information() {
+  const location = useLocation();
+  const data = location.state;
+  console.log(data);
 
+  if (!data) {
+    return <div>데이터가 로딩중입니다...</div>;
+  }
 
-function Information({ title }) {
   return (
-   
     <div className="container mt-5">
+      
       <div className="row">
-        <div className="col-lg-8">
+        <div className="info-col-lg-8">
           {/* Post content */}
           <article>
             {/* Post header */}
             <header className="mb-4">
               {/* Post title */}
-              <h1 className="fw-bolder mb-1">Welcome to !</h1>
+              <h1 className="fw-bolder mb-1">{data.title}!</h1>
               {/* Post meta content */}
-              <div className="text-muted fst-italic mb-2">Posted on January 1, 2023 by Start Bootstrap</div>
+              <div className="text-muted fst-italic mb-2">{data.address}</div>
               {/* Post categories */}
-              <a className="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-              <a className="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+              {/*<a className="badge bg-secondary text-decoration-none link-light" href="#!">체험</a>
+              <a className="badge bg-secondary text-decoration-none link-light" href="#!">먹거리</a>*/}
             </header>
-            {/* Preview image figure */}
+            {/* 이미지 */}
             <figure className="mb-4">
-              <img className="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." />
+              {/*<img className="img-fluid rounded" src={'./skywork.JPG'} />*/ }
+              <img src={data.imageUrl} className="card-img square-img" alt="..."/>
             </figure>
             {/* Post content */}
             <section className="mb-5">
@@ -82,14 +90,25 @@ function Information({ title }) {
         <div className="info-col-lg-4">
           {/* Search widget */}
           <div className="card mb-4">
-            <div className="card-header">Search</div>
+            <div className="card-header">사이트 방문</div>
             <div className="card-body">
               <div className="input-group">
-                <input className="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />
+                {/*<input className="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />*/}
                 <button className="btn btn-primary" id="button-search" type="button">Go!</button>
               </div>
             </div>
           </div>
+
+          <div className="card mb-4">
+            <div className="card-header">뒤로가기</div>
+            <div className="card-body">
+              <div className="input-group">
+                {/*<input className="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />*/}
+                <button className="btn btn-primary" id="button-search" type="button">뒤로가기</button>
+              </div>
+            </div>
+          </div>
+
           {/* Categories widget */}
           <div className="card mb-4">
             <div className="card-header">Categories</div>

@@ -1283,6 +1283,7 @@ progress {
     flex: 0 0 auto;
     width: 20%;
     margin-top: 5px;
+    font-size: 25px;
   }
   .col-lg-4 {
     flex: 0 0 auto;
@@ -1307,6 +1308,7 @@ progress {
   div.info-col-lg-8 {
     order: 2;
     margin-left: 50px;
+    width:77%;
   }
 
   }
@@ -8103,6 +8105,7 @@ textarea.form-control-lg {
 .text-muted {
   --bs-text-opacity: 1;
   color: #6c757d !important;
+  font-size: 29px;
 }
 
 .text-black-50 {

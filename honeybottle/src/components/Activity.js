@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../font.css';
 import '../style.css';
@@ -41,6 +42,17 @@ function Activity() {
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const displayedData = data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
+  const navigate = useNavigate();
+
+  // Information에 넘길 데이터를 추출
+  const extractDataForInformation = (item) => {
+    return {
+      title: item.title,
+      address: item.url,
+      imageUrl: item.thumbnailUrl,
+    };
+  };
+
 
   return (
     <>
@@ -57,86 +69,22 @@ function Activity() {
         <body style={{ backgroundColor: 'rgba(244, 243, 250, 1)' }}>
           <link rel="stylesheet" href='./font.css' />
           <section className="section">
-
-            {/*<div className="container">
-              <div className="justify-content-center row">
-                <div className="col-lg-12">
-                  <div className="candidate-list-widgets mb-4">
-                    <form action="#" className="">
-                      <div className="g-2 row">
-                        <div className="align-items-center row">
-                          <div className="col-lg-8">
-                            <div className="city-layout">
-                              <h4 className="cityname">서울동북부지역</h4>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="division-line"></div>
-                      <div className="button-group">
-
-                        <button id="category-button" onClick={goActivity}>
-                          체험
-                        </button>
-                        <button id="category-button" onClick={goEat}>
-                          먹거리
-                        </button>
-
-                        <button id="category-button" onClick={goPlace}>
-                          명소
-                        </button>
-
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>*/}
             <Container />
-
-
 
             <div className="candidate-list">
               <SideBar title={"체험"}/>
-
-              {/*<div className="col-lg-4">
-                <div className="container bootstrap snippets bootdey">
-                  <div
-                    className="row"
-                    style={{ backgroundColor: 'rgba(244, 243, 250, 1)' }}
-                  >
-                    <div className="nav-logo-layout">
-                      <a className="nav-logo" href="#">
-                        🍯 HoneyBottle
-                      </a>
-                    </div>
-                    <nav className="list-group">
-                      <a className="list-group-item with-badge" href="#">
-                        <i className="fa fa-th"></i>여기는
-                      </a>
-                      <a className="list-group-item" href="#">
-                        <i className="fa fa-map"></i>체험
-                      </a>
-                      <a className="list-group-item" href="#">
-                        <i className="fa fa-map"></i>페이지
-                      </a>
-                      <a className="list-group-item" href="#">
-                        <i className="fa fa-map"></i>카테고리바
-                      </a>
-                    </nav>
-                  </div>
-                </div>
-          </div>*/}
 
               <div className="col-lg-8">
               <div className="candidate-list-group">
                 <MainCard key={0} title={'통영마을'} address={'서울특별시 노원구 어쩌구'} imageUrl={'./skywork.JPG'} />
 
                 {displayedData.map((item) => (
-                <Link key={item.id} to={`/information/${encodeURIComponent(item.title)}`}>
+                  // onClick 이벤트를 사용하여 정보 페이지로 이동하도록 
+                <div key={item.id} className="card-link" onClick={() => navigate(`/information/${encodeURIComponent(item.title)}`, { state: extractDataForInformation(item) })}>
                   <MainCard title={item.title} address={item.url} imageUrl={item.thumbnailUrl} />
-                </Link>
-                ))}
+                </div>
+              ))}
+                  
               </div>
 
                 {/* 페이지 네비게이션 */}
