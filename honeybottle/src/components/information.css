@@ -1304,6 +1304,12 @@ progress {
     flex: 0 0 auto;
     width: 66.66666667%;
   }
+  div.info-col-lg-8 {
+    order: 2;
+    margin-left: 50px;
+  }
+
+  }
   .col-lg-9 {
     flex: 0 0 auto;
     width: 75%;
@@ -1404,7 +1410,7 @@ progress {
   .gy-lg-5 {
     --bs-gutter-y: 3rem;
   }
-}
+
 @media (min-width: 1200px) {
   .col-xl {
     flex: 1 0 0%;
