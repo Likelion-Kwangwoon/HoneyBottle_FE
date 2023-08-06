@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../font.css';
 import '../style.css';
@@ -40,6 +40,16 @@ function Place() {
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const displayedData = data.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
+  const navigate = useNavigate();
+
+  // Information에 넘길 데이터를 추출
+  const extractDataForInformation = (item) => {
+    return {
+      title: item.title,
+      address: item.url,
+      imageUrl: item.thumbnailUrl,
+    };
+  };
 
   return (
     <>
@@ -63,12 +73,12 @@ function Place() {
               <div className="col-lg-8">
               <div className="candidate-list-group">
                 <MainCard key={0} title={'통영마을'} address={'서울특별시 노원구 어쩌구'} imageUrl={'./skywork.JPG'} />
-
                 {displayedData.map((item) => (
-                <Link key={item.id} to={`/information/${encodeURIComponent(item.title)}`}>
+                  // onClick 이벤트를 사용하여 정보 페이지로 이동하도록 
+                <div key={item.id} className="card-link" onClick={() => navigate(`/information/${encodeURIComponent(item.title)}`, { state: extractDataForInformation(item) })}>
                   <MainCard title={item.title} address={item.url} imageUrl={item.thumbnailUrl} />
-                </Link>
-                ))}
+                </div>
+              ))}
               </div>
 
                 {/* 페이지 네비게이션 */}
