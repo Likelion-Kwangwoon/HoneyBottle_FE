@@ -1,6 +1,8 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import './information.css';
+import Container from "./Container";
+import SideBar from "./SideBar";
 
 function Information() {
   const location = useLocation();
@@ -12,14 +14,27 @@ function Information() {
   }
 
   return (
-    <div className="container mt-5">
-      
-      <div className="row">
-        <div className="info-col-lg-8">
+    <html lang="ko">
+      <head>
+        <meta charset="utf-8" />
+        <title>꿀통</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+          rel="stylesheet" />
+        <link href='./style.css' type="text/css" rel="stylesheet" />
+      </head>
+      <body style={{ backgroundColor: 'rgba(244, 243, 250, 1)' }}>
+        <link rel="stylesheet" href='./font.css' />
+        <section className="section">
+          <Container />
+          <div className="candidate-list">
+            <SideBar title={"세부페이지"} />
+            <div className="col-lg-8">
           {/* Post content */}
           <article>
             {/* Post header */}
-            <header className="mb-4">
+            <header className="mb-4 mt-3">
               {/* Post title */}
               <h1 className="fw-bolder mb-1">{data.title}!</h1>
               {/* Post meta content */}
@@ -31,11 +46,15 @@ function Information() {
             {/* 이미지 */}
             <figure className="mb-4">
               {/*<img className="img-fluid rounded" src={'./skywork.JPG'} />*/ }
+              <a href="https://www.idus.com/c/class/7685">
               <img src={data.imageUrl} className="card-img square-img" alt="..."/>
+              </a>
             </figure>
+              
+
             {/* Post content */}
             <section className="mb-5">
-              <p className="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
+              <p className="fs-5 mb-4">{data.content}Science is an enterprise that should be cherished as an activity of the free human mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in the universe.</p>
               <p className="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the life became intelligent is a different question, and we'll see if we find that.</p>
               <p className="fs-5 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry enough energy into our system to disrupt transportation, communication, the food chains, and that can be a really bad day on Earth.</p>
               <h2 className="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2>
@@ -43,102 +62,18 @@ function Information() {
               <p className="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>
             </section>
           </article>
-          {/* Comments section */}
-          <section className="mb-5">
-            <div className="card bg-light">
-              <div className="card-body">
-                {/* Comment form */}
-                <form className="mb-4"><textarea className="form-control" rows="3" placeholder="Join the discussion and leave a comment!"></textarea></form>
-                {/* Comment with nested comments */}
-                <div className="d-flex mb-4">
-                  {/* Parent comment */}
-                  <div className="flex-shrink-0"><img className="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                  <div className="ms-3">
-                    <div className="fw-bold">Commenter Name</div>
-                    If you're going to lead a space frontier, it has to be government; it'll never be private enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified risks.
-                    {/* Child comment 1 */}
-                    <div className="d-flex mt-4">
-                      <div className="flex-shrink-0"><img className="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                      <div className="ms-3">
-                        <div className="fw-bold">Commenter Name</div>
-                        And under those conditions, you cannot establish a capital-market evaluation of that enterprise. You can't get investors.
-                      </div>
-                    </div>
-                    {/* Child comment 2 */}
-                    <div className="d-flex mt-4">
-                      <div className="flex-shrink-0"><img className="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                      <div className="ms-3">
-                        <div className="fw-bold">Commenter Name</div>
-                        When you put money directly to a problem, it makes a good headline.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* Single comment */}
-                <div className="d-flex">
-                  <div className="flex-shrink-0"><img className="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
-                  <div className="ms-3">
-                    <div className="fw-bold">Commenter Name</div>
-                    When I look at the universe and all the ways the universe wants to kill us, I find it hard to reconcile that with statements of beneficence.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-        {/* Side widgets */}
-        <div className="info-col-lg-4">
-          {/* Search widget */}
-          <div className="card mb-4">
-            <div className="card-header">사이트 방문</div>
-            <div className="card-body">
-              <div className="input-group">
-                {/*<input className="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />*/}
-                <button className="btn btn-primary" id="button-search" type="button">Go!</button>
-              </div>
-            </div>
           </div>
 
-          <div className="card mb-4">
-            <div className="card-header">뒤로가기</div>
-            <div className="card-body">
-              <div className="input-group">
-                {/*<input className="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" />*/}
-                <button className="btn btn-primary" id="button-search" type="button">뒤로가기</button>
-              </div>
-            </div>
           </div>
-
-          {/* Categories widget */}
-          <div className="card mb-4">
-            <div className="card-header">Categories</div>
-            <div className="card-body">
-              <div className="row">
-                <div className="col-sm-6">
-                  <ul className="list-unstyled mb-0">
-                    <li><a href="#!">Web Design</a></li>
-                    <li><a href="#!">HTML</a></li>
-                    <li><a href="#!">Freebies</a></li>
-                  </ul>
-                </div>
-                <div className="col-sm-6">
-                  <ul className="list-unstyled mb-0">
-                    <li><a href="#!">JavaScript</a></li>
-                    <li><a href="#!">CSS</a></li>
-                    <li><a href="#!">Tutorials</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Side widget */}
-          <div className="card mb-4">
-            <div className="card-header">Side Widget</div>
-            <div className="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-          </div>
-        </div>
-      </div>
-    </div>
+        </section>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+          crossOrigin="anonymous"
+        ></script>
+        <script type="text/javascript"></script>
+      </body>
+    </html>
   );
 }
 

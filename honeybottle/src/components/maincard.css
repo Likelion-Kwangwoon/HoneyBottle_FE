@@ -7,11 +7,11 @@
   }
 
   .square-img:hover {
-    transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -moz-transform: scale(1.2);
-    -ms-transform: scale(1.2); /* IE 9 */
-    -o-transform: scale(1.2);
+    transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+    -moz-transform: scale(1.01);
+    -ms-transform: scale(1.01);
+    -o-transform: scale(1.01);
     transition: transform 0.3s;
   }
 
