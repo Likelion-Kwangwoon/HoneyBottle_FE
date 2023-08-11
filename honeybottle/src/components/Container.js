@@ -31,25 +31,22 @@ function Container() {
                         <div className="align-items-center row">
                           <div className="col-lg-8">
                             <div className="city-layout">
-                              <h4 className="cityname">서울동북부지역</h4>
+                              <h4 className="cityname">🍯 HoneyBottle</h4>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div className="division-line"></div>
                       <div className="button-group">
-
                         <button id="category-button" onClick={goActivity}>
                           체험
                         </button>
                         <button id="category-button" onClick={goEat}>
                           먹거리
                         </button>
-
                         <button id="category-button" onClick={goPlace}>
                           명소
                         </button>
-
                       </div>
                     </form>
                   </div>

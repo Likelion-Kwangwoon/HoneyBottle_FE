@@ -12,21 +12,39 @@ function SideBar({title}) {
                   >
                     <div className="nav-logo-layout">
                       <a className="nav-logo" href="#">
-                        🍯 HoneyBottle
+                        🍯 {title}
                       </a>
                     </div>
                     <nav className="list-group">
-                      <a className="list-group-item with-badge" href="#">
-                        <i className="fa fa-th"></i>여기는
+                      <a className="list-group-item" href="#">
+                        <i className="fa fa-map"></i>서울
                       </a>
                       <a className="list-group-item" href="#">
-                        <i className="fa fa-map"></i>{title}
+                        <i className="fa fa-map"></i>경기
                       </a>
                       <a className="list-group-item" href="#">
-                        <i className="fa fa-map"></i>페이지
+                        <i className="fa fa-map"></i>강원
                       </a>
                       <a className="list-group-item" href="#">
-                        <i className="fa fa-map"></i>카테고리바
+                        <i className="fa fa-map"></i>충북
+                      </a>
+                      <a className="list-group-item" href="#">
+                        <i className="fa fa-map"></i>충남
+                      </a>
+                      <a className="list-group-item" href="#">
+                        <i className="fa fa-map"></i>경북
+                      </a>
+                      <a className="list-group-item" href="#">
+                        <i className="fa fa-map"></i>경남
+                      </a>
+                      <a className="list-group-item" href="#">
+                        <i className="fa fa-map"></i>전북
+                      </a>
+                      <a className="list-group-item" href="#">
+                        <i className="fa fa-map"></i>전남
+                      </a>
+                      <a className="list-group-item" href="#">
+                        <i className="fa fa-map"></i>제주
                       </a>
                     </nav>
                   </div>
