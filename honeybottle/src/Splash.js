@@ -33,6 +33,9 @@ function Splash() {
                   <Link to="/Main">
                     <button className="btn btn-primary me-3">게시판</button>
                   </Link>
+                  <Link to="/Admin">
+                    <button className="btn btn-primary me-3">관리자 모드</button>
+                  </Link>
                 </div>
               </div>
             </div>

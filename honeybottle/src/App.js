@@ -7,6 +7,7 @@ import Activity from "./components/Activity.js";
 import Place from "./components/Place.js";
 import Eat from "./components/Eat.js";
 import Information from './components/Information'
+import Admin from "./components/Admin/Admin.js";
 import './font.css'
 import './style.css'
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" exact={true} element={<Splash />} />
           <Route path="/Main" element={<Main />} />
           <Route path="/Login" element={<Login />} />
+          <Route path="/Admin" element={<Admin />} />
           <Route path="/Activity" element={<Activity />} />
           <Route path="/Eat" element={<Eat />} />
           <Route path="/Place" element={<Place />} />
